@@ -4,10 +4,12 @@
 
     <!-- You can change control program  -->
 
+    <include file="$(find burger_navigation)/launch/burger_navigation.launch">
+    </include>
 
     <!-- sample program node -->
 
-    <node pkg="burger_war" type="randomRun.py" name="randomRun" output="screen"/>
+    <node pkg="burger_war" type="point_run.py" name="point_run" output="screen"/>
 
     <!-- END sample program node -->
 
