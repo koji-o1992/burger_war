@@ -20,7 +20,7 @@ class OnigiriRun(object):
 	#ROS subscriber
 	self.move_base_status_sub = rospy.Subscriber('/move_base/status', GoalStatusArray, self.GoalStatusArrayCallback, queue_size=1)
 
-	f=open(os.path.expanduser('~')+'/catkin_ws/src/burger_war/burger_war/scripts/old/point_list.txt')
+	f=open(os.path.expanduser('~')+'/catkin_ws/src/burger_war/burger_navigation/maps/point_list.txt')
 	point_str = f.read()
 	f.close()
 	self.point = []
