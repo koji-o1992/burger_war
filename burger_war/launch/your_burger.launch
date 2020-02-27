@@ -9,8 +9,7 @@
 
     <!-- sample program node -->
 
-    <node pkg="burger_war" type="point_run.py" name="point_run" output="screen"/>
-
+    <node pkg="burger_war" type="all_sensor_sample.py" name="all_sensor_sample" output="screen"/>
     <!-- END sample program node -->
 
 
