@@ -38,16 +38,25 @@ PI = 3.1415
 # robot running coordinate in SEARCH MODE
 basic_coordinate = np.array([
     # x, y, th
-    [-0.4, 0.0, 0],  # 1
-    [-0.9, 0.0, 0],  # 2
-    [-0.9, 0.5, 0],  # 3
-    [-0.9, -0.5, 0], # 4
+    [-0.4, 0.0, 0],  # 1 center
+    [-0.9, 0.0, 0],  # 2 
+    [-0.9, 0.5, 0],  # 3 red left front
+    [-0.9, -0.5, 0], # 4 red right front
     [-0.9, 0.0, 0],  # 5
     [0, -0.5, 0],    # 6
-    [0, -0.5, PI],   # 7
-    [0, -0.5, PI/2], # 8
-    [0, -1.2, PI/2]] # 17
-)
+    [0, -0.5, PI/2], # 7
+    [0, -0.5, PI],  # 8
+    [-0.4, 0.0, 0], # 1 center
+    [0, 0.5, 0],    # 
+    [0, 0.5, -1 * PI/2], # 
+    [0, 0.5, PI],   # 
+    [-0.4, 0.0, 0], # 1 center
+    [0, -0.5, 0],   # 
+    [0.4, 0, PI/2], # 
+    [0.4, 0, PI],   # 
+    [0, 0.5, PI],   # 
+    [-0.4, 0.0, -1 * PI] # 1 center
+])
 
 
 class AllSensorBot(object):
@@ -173,7 +182,6 @@ class AllSensorBot(object):
 
 #navigation
     def func_basic(self):
-        print("func_basic")
         twist = Twist()        
         # basic
 
@@ -184,13 +192,17 @@ class AllSensorBot(object):
         ret = self.setGoal(_x, _y, _th)
 
         if ret == 0:
+            # Goaled
+            print("goal:",self.basic_mode_process_step_idx)
             self.basic_mode_process_step_idx += 1
+            self.basic_mode_process_step_idx %= len(basic_coordinate)
         else:
             # setGoal canceled
+            print("cancel")
             print("setGoal ret:", ret)
 
         return 0
-
+    # Ref: https://github.com/seigot/burger_war
     # Ref: https://hotblackrobotics.github.io/en/blog/2018/01/29/action-client-py/
     # Ref: https://github.com/hotic06/burger_war/blob/master/burger_war/scripts/navirun.py
     # RESPECT @hotic06
