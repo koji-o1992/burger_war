@@ -8,7 +8,8 @@
     </include>
 
     <!-- sample program node -->
-    <node pkg="burger_war" type="all_sensor_sample.py" name="all_sensor_sample" output="screen"/>
+    <!-- <node pkg="burger_war" type="all_sensor_sample.py" name="all_sensor_sample" output="screen"/> -->
+    <node pkg="burger_war" type="all_sensor_sample_kk.py" name="all_sensor_sample_kk" output="screen"/>
     <!-- <node pkg="burger_war" type="all_sensor_sample_k.py" name="all_sensor_sample_k" output="screen"/> -->
     <!-- <node pkg="burger_war" type="randomRun.py" name="randomRun" output="screen"/> -->
 
